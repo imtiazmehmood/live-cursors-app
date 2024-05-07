@@ -1,9 +1,7 @@
-// Source: https://github.com/steveruizok/perfect-cursors
-
 import * as React from "react";
 import { usePerfectCursor } from "../hooks/usePerfectCursor";
 
-export function Cursor({ userId, point }) {
+export function Cursor({ userId, point, username }) {
   const rCursor = React.useRef(null);
 
   const animateCursor = React.useCallback((point) => {
@@ -26,11 +24,11 @@ export function Cursor({ userId, point }) {
         position: "absolute",
         top: -15,
         left: -15,
-        width: 35,
-        height: 35,
+        width: 70, // Adjusted width to accommodate the text
+        height: 70, // Adjusted height to accommodate the text
       }}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 35 35"
+      viewBox="0 0 70 70" // Adjusted viewBox to accommodate the text
       fill="none"
       fillRule="evenodd"
     >
@@ -46,6 +44,17 @@ export function Cursor({ userId, point }) {
         <path d="m19.751 24.4155-1.844.774-3.1-7.374 1.841-.775z" />
         <path d="m13 10.814v11.188l2.969-2.866.428-.139h4.768z" />
       </g>
+
+      <text
+        x="50"
+        y="35"
+        fontFamily="Arial"
+        fontSize="14"
+        textAnchor="middle"
+        fill="black"
+      >
+        {username}
+      </text>
     </svg>
   );
 }
